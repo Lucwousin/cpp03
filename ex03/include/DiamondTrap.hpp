@@ -20,17 +20,17 @@ class DiamondTrap: public FragTrap, public ScavTrap {
 	public:
 		DiamondTrap(void);
 		DiamondTrap(const DiamondTrap &other);
-		DiamondTrap(const string &name);
+		DiamondTrap(const std::string &name);
 
 		DiamondTrap &operator=(const DiamondTrap &rhs);
 
 		~DiamondTrap(void);
 
-		void	attack(const string &target);
+		void	attack(const std::string &target);
 		void	whoAmI(void);
 
 	private:
-		string	_name;
+		std::string	_name;
 };
 
 #endif //DIAMONDTRAP_HPP

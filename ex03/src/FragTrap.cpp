@@ -12,10 +12,8 @@
 
 #include <FragTrap.hpp>
 
-using std::cout;
-
 FragTrap::FragTrap(void): ClapTrap() {
-	cout << "FragTrap default constructor called" << std::endl;
+	std::cout << "FragTrap default constructor called" << std::endl;
 
 	_hitPoints		= 100;
 	_energyPoints	= 100;
@@ -23,11 +21,11 @@ FragTrap::FragTrap(void): ClapTrap() {
 }
 
 FragTrap::FragTrap(const FragTrap &other): ClapTrap(other) {
-	cout << "FragTrap copy constructor called" << std::endl;
+	std::cout << "FragTrap copy constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(const string &name): ClapTrap(name) {
-	cout << "FragTrap constructor with name called" << std::endl;
+FragTrap::FragTrap(const std::string &name): ClapTrap(name) {
+	std::cout << "FragTrap constructor with name called" << std::endl;
 
 	_hitPoints		= 100;
 	_energyPoints	= 100;
@@ -35,24 +33,21 @@ FragTrap::FragTrap(const string &name): ClapTrap(name) {
 }
 
 FragTrap::~FragTrap(void) {
-	cout << "FragTrap destructor called" << std::endl;
+	std::cout << "FragTrap destructor called" << std::endl;
 }
 
-void FragTrap::attack(const string &target) {
+void FragTrap::attack(const std::string &target) {
 	if (_hitPoints == 0 || _energyPoints == 0) {
-		cout << "FragTrap "	<< _name	<< " "
-				"could not attack!"		<< std::endl;
+		std::cout << "FragTrap " << _name << " could not attack!" << std::endl;
 		return;
 	}
 
-	cout << "FragTrap "	<< _name			<< " "
-			"attacks "	<< target			<< ", "
-			"dealing "	<< _attackDamage	<< " "
-			"points of damage!"				<< std::endl;
+	std::cout << "FragTrap " << _name << " attacks " << target << ", "
+				"dealing " << _attackDamage << " points of damage!" << std::endl;
 
 	--_energyPoints;
 }
 
 void FragTrap::highFivesGuys(void) {
-	cout << "FragTrap "	<< _name << " got a positive high fives request" << std::endl;
+	std::cout << "FragTrap " << _name << " got a positive high fives request" << std::endl;
 }

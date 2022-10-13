@@ -16,24 +16,22 @@
 # include <iostream>
 # include <string>
 
-using std::string;
-
 class ClapTrap {
 	public:
 		ClapTrap(void);
 		ClapTrap(const ClapTrap &other);
-		ClapTrap(const string &name);
+		ClapTrap(const std::string &name);
 
 		ClapTrap &operator=	(const ClapTrap &rhs);
 
 		~ClapTrap(void);
 
-		virtual void	attack(const string &target);
+		virtual void	attack(const std::string &target);
 		void			takeDamage(unsigned int amount);
 		void			beRepaired(unsigned int amount);
 
 	protected:
-		string			_name;
+		std::string			_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;
 		unsigned int	_attackDamage;

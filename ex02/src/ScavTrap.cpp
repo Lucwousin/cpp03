@@ -12,10 +12,8 @@
 
 #include <ScavTrap.hpp>
 
-using std::cout;
-
 ScavTrap::ScavTrap(void): ClapTrap() {
-	cout << "ScavTrap default constructor called" << std::endl;
+	std::cout << "ScavTrap default constructor called" << std::endl;
 
 	_hitPoints		= 100;
 	_energyPoints	= 50;
@@ -23,11 +21,11 @@ ScavTrap::ScavTrap(void): ClapTrap() {
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other): ClapTrap(other) {
-	cout << "ScavTrap copy constructor called" << std::endl;
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const string &name): ClapTrap(name) {
-	cout << "ScavTrap constructor with name called" << std::endl;
+ScavTrap::ScavTrap(const std::string &name): ClapTrap(name) {
+	std::cout << "ScavTrap constructor with name called" << std::endl;
 
 	_hitPoints		= 100;
 	_energyPoints	= 50;
@@ -35,24 +33,21 @@ ScavTrap::ScavTrap(const string &name): ClapTrap(name) {
 }
 
 ScavTrap::~ScavTrap(void) {
-	cout << "ScavTrap destructor called" << std::endl;
+	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-void ScavTrap::attack(const string &target) {
+void ScavTrap::attack(const std::string &target) {
 	if (_hitPoints == 0 || _energyPoints == 0) {
-		cout << "ScavTrap "	<< _name	<< " "
-				"could not attack!"		<< std::endl;
+		std::cout << "ScavTrap " << _name << " could not attack!" << std::endl;
 		return;
 	}
 
-	cout << "ScavTrap "	<< _name			<< " "
-			"attacks "	<< target			<< ", "
-			"dealing "	<< _attackDamage	<< " "
-			"points of damage!"				<< std::endl;
+	std::cout << "ScavTrap " << _name << " attacks " << target << ", "
+				"dealing " << _attackDamage << " points of damage!" << std::endl;
 
 	--_energyPoints;
 }
 
 void ScavTrap::guardGate(void) {
-	cout << "ScavTrap "	<< _name << " is now in gate keeper mode" << std::endl;
+	std::cout << "ScavTrap " << _name << " is now in gate keeper mode" << std::endl;
 }

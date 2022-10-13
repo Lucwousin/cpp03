@@ -12,10 +12,8 @@
 
 #include <DiamondTrap.hpp>
 
-using std::cout;
-
 DiamondTrap::DiamondTrap(void) {
-	cout << "DiamondTrap default constructor called" << std::endl;
+	std::cout << "DiamondTrap default constructor called" << std::endl;
 
 	_hitPoints		= FragTrap::_hitPoints;
 	_energyPoints	= ScavTrap::_energyPoints;
@@ -24,18 +22,14 @@ DiamondTrap::DiamondTrap(void) {
 
 DiamondTrap::DiamondTrap(const DiamondTrap &other):
 	ClapTrap(other), FragTrap(other), ScavTrap(other) {
-	cout << "DiamondTrap copy constructor called" << std::endl;
+	std::cout << "DiamondTrap copy constructor called" << std::endl;
 
-	ClapTrap::_name	= other.ClapTrap::_name;
-	_name			= other._name;
-	_hitPoints		= other._hitPoints;
-	_energyPoints	= other._energyPoints;
-	_attackDamage	= other._attackDamage;
+	*this = other;
 }
 
-DiamondTrap::DiamondTrap(const string &name):
+DiamondTrap::DiamondTrap(const std::string &name):
 	ClapTrap(name + "_clap_name") {
-	cout << "DiamondTrap constructor with name called" << std::endl;
+	std::cout << "DiamondTrap constructor with name called" << std::endl;
 
 	_name			= name;
 	_hitPoints		= FragTrap::_hitPoints;
@@ -44,7 +38,7 @@ DiamondTrap::DiamondTrap(const string &name):
 }
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs) {
-	cout << "DiamondTrap assignment operator called" << std::endl;
+	std::cout << "DiamondTrap assignment operator called" << std::endl;
 
 	if (this != &rhs) {
 		ClapTrap::_name	= rhs.ClapTrap::_name;
@@ -57,14 +51,13 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs) {
 }
 
 DiamondTrap::~DiamondTrap() {
-	cout << "DiamondTrap destructor called" << std::endl;
+	std::cout << "DiamondTrap destructor called" << std::endl;
 }
 
-void DiamondTrap::attack(const string &target) {
+void DiamondTrap::attack(const std::string &target) {
 	ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI(void) {
-	cout << "Hi, I'm DiamondTrap " << _name << ", "
-			"but my ClapTrap name is " << ClapTrap::_name << std::endl;
+	std::cout << "Hi, I'm DiamondTrap " << _name << ", but my ClapTrap name is " << ClapTrap::_name << std::endl;
 }
